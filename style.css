@@ -1,0 +1,204 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, Helveticaa, sans-serif;
+}
+
+.logo {
+	text-align: center;
+	margin:10px auto;
+	width: 80%;
+
+}
+
+/* Necesitamos un DIV que rodee a toda la página y crezca 
+en altura para que el #menu-lateral tenga una referencia */
+
+#contenedor-padre {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+}
+
+/* Para que el DIV #menu-lateral crezca en altura junto a
+su contenedor padre, necesitamos agregar este pequeño truco:
+posicionarlo en ABSOLUTO y bottom:0 para obligarlo a coger
+toda la altura de #contenedor-padre. Parece una contradicción
+que tenga las dos órdenes juntas (top:0 y bottom:0) pero 
+funciona para nuestro propósito */
+
+#menu-lateral {
+	position: absolute;
+  top:0;
+  bottom:0;
+	width: 15%;
+	background-color: black;
+	color:white;
+}
+
+#menu-lateral ul {
+  font-size: 0;
+  list-style-type: none;
+  width: 88%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#menu-lateral ul li {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: black;
+  background-color: white;
+  margin-bottom:10px;
+  padding: 15px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#menu-lateral a {color: black; text-decoration: none;}
+
+/* Se añadió un borde izquierdo para que visualmente 
+el 2ndo nivel se separe un poco del 1er nivel. Si lo
+separo con un margin-left, entre los dos menús habría
+un espacio en blanco que nos dará problemas, pues si
+movemos el cursor un poco lento, pierde el foco del HOVER
+y el segundo nivel del menú puede desaparecer */
+
+#menu-lateral ul li ul {
+  display: none; /* hacemos que se oculte el 2ndo nivel del menu */
+  background-color: white;
+  border-left: 12px solid black;
+  transition: all 0.3s ease;
+}
+#menu-lateral ul li:hover {
+  cursor: pointer;
+  background-color: lightblue;
+}
+
+#menu-lateral ul li:hover ul {
+  position: absolute;
+  display: block; /* Hacemos que se muestre el 2ndo nivel
+  cuando hacemos HOVER en el 1er nivel */
+  width: 200px;
+  left: 100%;
+  top:0;
+  z-index: 10;
+}
+
+#menu-lateral ul li:hover ul li {
+  display: block;
+  border-bottom: 1px dashed black;
+  margin-bottom:0;
+}
+
+
+#contenido-derecho {
+  width: 84%;
+  margin-left:15%;
+}
+
+.noticia {
+  position: relative;
+	float: left;
+	width: 100%;
+  background-color: #D6FDFF;
+	padding-left: 10px;
+  padding-bottom: 10px;
+
+}
+
+.noticia h1 {
+	text-align: center;
+	padding:20px;
+	font-size: xx-large;
+}
+
+.noticia img {
+	width: 100%;
+	height: auto;
+}
+
+.noticia figure figcaption {
+	font-style: italic;
+	margin-bottom: 10px;
+}
+
+.parrafo {
+
+  text-align: justify;
+	columns: 10px 3;
+	width: 100%;
+	padding: 5px;
+}
+
+.relacionados {
+	position: relative;
+  float: left;
+  margin-bottom:20px;
+	width: 100%;
+  text-align: justify;
+
+}
+
+.articulo-rel {
+  width: 100%;
+  height: auto;
+  padding: 20px 10px;
+	border-top: 1px dashed black;
+}
+
+.articulo-rel img {
+  float: left;
+  margin-right:20px;
+}
+
+.articulo-rel h1 {
+  margin-bottom: 10px;
+}
+
+#footer {
+  float: left;
+  position: relative;
+  padding: 10px;
+  margin-left:10px;
+  width:99%;
+  background-color: black;
+  color: white;
+}
+
+/**** boton leer más ****/
+
+.leer-mas {
+  position: relative;
+  float: right;
+  background-color: white;
+  text-align: center;
+  border:1px solid black;
+  margin:20px 0;
+}
+
+.leer-mas a {
+  width: 130px;
+  height: auto;
+  padding: 10px;
+  display: block;
+  color:black;
+  text-decoration: none;
+  transition: all 0.3s linear;
+}
+
+.leer-mas a:hover {
+  color:black;
+  background-color: lightblue;
+}
+
+.clear {clear: both;}
